@@ -1,0 +1,489 @@
+//
+//Written by GowinSynthesis
+//Product Version "GowinSynthesis V1.9.8.01"
+//Wed Feb 22 16:34:08 2023
+
+//Source file index table:
+//file0 "\D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c_slave.v"
+//file1 "\D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/led.v"
+//file2 "\D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v"
+`timescale 100 ps/100 ps
+module iic_slave_design (
+  iic_sda_in,
+  iic_scl_d,
+  iic_sda_5,
+  get_data
+)
+;
+input iic_sda_in;
+input iic_scl_d;
+output iic_sda_5;
+output [7:0] get_data;
+wire n152_20;
+wire n152_21;
+wire n152_22;
+wire n152_23;
+wire n221_3;
+wire n219_3;
+wire n217_3;
+wire n213_3;
+wire n211_3;
+wire n209_3;
+wire n198_3;
+wire n93_3;
+wire start_or_stop;
+wire n30_5;
+wire n29_5;
+wire n223_4;
+wire n223_5;
+wire n223_6;
+wire n215_4;
+wire n198_4;
+wire iic_sda_7;
+wire n215_6;
+wire n223_8;
+wire n28_7;
+wire n27_7;
+wire iic_sda_9;
+wire n5_8;
+wire iic_sdar;
+wire iic_sda_shadow;
+wire incycle;
+wire data_phase;
+wire got_ACK;
+wire adr_match;
+wire op_read;
+wire n152_25;
+wire n152_27;
+wire n21_6;
+wire incycle_9;
+wire n96_5;
+wire [3:0] bitcnt;
+wire VCC;
+wire GND;
+  LUT3 n152_s23 (
+    .F(n152_20),
+    .I0(get_data[0]),
+    .I1(get_data[1]),
+    .I2(bitcnt[0]) 
+);
+defparam n152_s23.INIT=8'hCA;
+  LUT3 n152_s24 (
+    .F(n152_21),
+    .I0(get_data[2]),
+    .I1(get_data[3]),
+    .I2(bitcnt[0]) 
+);
+defparam n152_s24.INIT=8'hCA;
+  LUT3 n152_s25 (
+    .F(n152_22),
+    .I0(get_data[4]),
+    .I1(get_data[5]),
+    .I2(bitcnt[0]) 
+);
+defparam n152_s25.INIT=8'hCA;
+  LUT3 n152_s26 (
+    .F(n152_23),
+    .I0(get_data[6]),
+    .I1(get_data[7]),
+    .I2(bitcnt[0]) 
+);
+defparam n152_s26.INIT=8'hCA;
+  LUT4 n221_s0 (
+    .F(n221_3),
+    .I0(bitcnt[1]),
+    .I1(bitcnt[0]),
+    .I2(n223_5),
+    .I3(n223_6) 
+);
+defparam n221_s0.INIT=16'h4000;
+  LUT4 n219_s0 (
+    .F(n219_3),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]),
+    .I2(n223_5),
+    .I3(n223_6) 
+);
+defparam n219_s0.INIT=16'h4000;
+  LUT4 n217_s0 (
+    .F(n217_3),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]),
+    .I2(n223_5),
+    .I3(n223_6) 
+);
+defparam n217_s0.INIT=16'h8000;
+  LUT4 n213_s0 (
+    .F(n213_3),
+    .I0(bitcnt[1]),
+    .I1(bitcnt[0]),
+    .I2(n223_5),
+    .I3(n215_4) 
+);
+defparam n213_s0.INIT=16'h4000;
+  LUT4 n211_s0 (
+    .F(n211_3),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]),
+    .I2(n223_5),
+    .I3(n215_4) 
+);
+defparam n211_s0.INIT=16'h4000;
+  LUT4 n209_s0 (
+    .F(n209_3),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]),
+    .I2(n223_5),
+    .I3(n215_4) 
+);
+defparam n209_s0.INIT=16'h8000;
+  LUT3 n198_s0 (
+    .F(n198_3),
+    .I0(bitcnt[3]),
+    .I1(data_phase),
+    .I2(n198_4) 
+);
+defparam n198_s0.INIT=8'h01;
+  LUT4 n93_s0 (
+    .F(n93_3),
+    .I0(bitcnt[2]),
+    .I1(bitcnt[3]),
+    .I2(data_phase),
+    .I3(n223_4) 
+);
+defparam n93_s0.INIT=16'h0100;
+  LUT4 iic_sda_s2 (
+    .F(iic_sda_5),
+    .I0(iic_sda_9),
+    .I1(bitcnt[3]),
+    .I2(iic_sda_7),
+    .I3(adr_match) 
+);
+defparam iic_sda_s2.INIT=16'hD3FF;
+  LUT3 start_or_stop_s1 (
+    .F(start_or_stop),
+    .I0(iic_sda_in),
+    .I1(iic_sda_shadow),
+    .I2(iic_scl_d) 
+);
+defparam start_or_stop_s1.INIT=8'h60;
+  LUT2 n30_s1 (
+    .F(n30_5),
+    .I0(bitcnt[3]),
+    .I1(bitcnt[0]) 
+);
+defparam n30_s1.INIT=4'hB;
+  LUT3 n29_s1 (
+    .F(n29_5),
+    .I0(bitcnt[3]),
+    .I1(bitcnt[0]),
+    .I2(bitcnt[1]) 
+);
+defparam n29_s1.INIT=8'hEB;
+  LUT2 n223_s1 (
+    .F(n223_4),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]) 
+);
+defparam n223_s1.INIT=4'h1;
+  LUT4 n223_s2 (
+    .F(n223_5),
+    .I0(bitcnt[3]),
+    .I1(op_read),
+    .I2(adr_match),
+    .I3(data_phase) 
+);
+defparam n223_s2.INIT=16'h1000;
+  LUT2 n223_s3 (
+    .F(n223_6),
+    .I0(bitcnt[2]),
+    .I1(incycle) 
+);
+defparam n223_s3.INIT=4'h4;
+  LUT2 n215_s1 (
+    .F(n215_4),
+    .I0(incycle),
+    .I1(bitcnt[2]) 
+);
+defparam n215_s1.INIT=4'h8;
+  LUT4 n198_s1 (
+    .F(n198_4),
+    .I0(bitcnt[0]),
+    .I1(bitcnt[1]),
+    .I2(bitcnt[2]),
+    .I3(iic_sdar) 
+);
+defparam n198_s1.INIT=16'h619F;
+  LUT2 iic_sda_s4 (
+    .F(iic_sda_7),
+    .I0(data_phase),
+    .I1(op_read) 
+);
+defparam iic_sda_s4.INIT=4'h8;
+  LUT4 n215_s2 (
+    .F(n215_6),
+    .I0(n223_4),
+    .I1(n223_5),
+    .I2(incycle),
+    .I3(bitcnt[2]) 
+);
+defparam n215_s2.INIT=16'h8000;
+  LUT4 n223_s4 (
+    .F(n223_8),
+    .I0(n223_4),
+    .I1(n223_5),
+    .I2(bitcnt[2]),
+    .I3(incycle) 
+);
+defparam n223_s4.INIT=16'h0800;
+  LUT4 n28_s2 (
+    .F(n28_7),
+    .I0(bitcnt[3]),
+    .I1(bitcnt[2]),
+    .I2(bitcnt[0]),
+    .I3(bitcnt[1]) 
+);
+defparam n28_s2.INIT=16'hEEEB;
+  LUT4 n27_s2 (
+    .F(n27_7),
+    .I0(bitcnt[2]),
+    .I1(bitcnt[3]),
+    .I2(bitcnt[0]),
+    .I3(bitcnt[1]) 
+);
+defparam n27_s2.INIT=16'h0001;
+  LUT4 iic_sda_s5 (
+    .F(iic_sda_9),
+    .I0(n152_25),
+    .I1(n152_27),
+    .I2(bitcnt[2]),
+    .I3(got_ACK) 
+);
+defparam iic_sda_s5.INIT=16'h3500;
+  LUT3 n5_s2 (
+    .F(n5_8),
+    .I0(iic_sda_in),
+    .I1(iic_sda_shadow),
+    .I2(iic_scl_d) 
+);
+defparam n5_s2.INIT=8'h6F;
+  DFF iic_sdar_s0 (
+    .Q(iic_sdar),
+    .D(iic_sda_in),
+    .CLK(iic_scl_d) 
+);
+  DL iic_sda_shadow_s0 (
+    .Q(iic_sda_shadow),
+    .D(iic_sda_in),
+    .G(n5_8) 
+);
+  DFFNCE incycle_s2 (
+    .Q(incycle),
+    .D(VCC),
+    .CLK(iic_scl_d),
+    .CE(incycle_9),
+    .CLEAR(start_or_stop) 
+);
+  DFFNC bitcnt_3_s2 (
+    .Q(bitcnt[3]),
+    .D(n27_7),
+    .CLK(iic_scl_d),
+    .CLEAR(n21_6) 
+);
+  DFFNP bitcnt_1_s1 (
+    .Q(bitcnt[1]),
+    .D(n29_5),
+    .CLK(iic_scl_d),
+    .PRESET(n21_6) 
+);
+  DFFNP bitcnt_0_s1 (
+    .Q(bitcnt[0]),
+    .D(n30_5),
+    .CLK(iic_scl_d),
+    .PRESET(n21_6) 
+);
+  DFFNCE data_phase_s1 (
+    .Q(data_phase),
+    .D(VCC),
+    .CLK(iic_scl_d),
+    .CE(bitcnt[3]),
+    .CLEAR(n21_6) 
+);
+  DFFNCE got_ACK_s1 (
+    .Q(got_ACK),
+    .D(n96_5),
+    .CLK(iic_scl_d),
+    .CE(bitcnt[3]),
+    .CLEAR(n21_6) 
+);
+  DFFNPE adr_match_s1 (
+    .Q(adr_match),
+    .D(GND),
+    .CLK(iic_scl_d),
+    .CE(n198_3),
+    .PRESET(n21_6) 
+);
+  DFFNCE op_read_s1 (
+    .Q(op_read),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n93_3),
+    .CLEAR(n21_6) 
+);
+  DFFNE mem_7_s1 (
+    .Q(get_data[7]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n209_3) 
+);
+  DFFNE mem_6_s1 (
+    .Q(get_data[6]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n211_3) 
+);
+  DFFNE mem_5_s1 (
+    .Q(get_data[5]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n213_3) 
+);
+  DFFNE mem_4_s1 (
+    .Q(get_data[4]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n215_6) 
+);
+  DFFNE mem_3_s1 (
+    .Q(get_data[3]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n217_3) 
+);
+  DFFNE mem_2_s1 (
+    .Q(get_data[2]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n219_3) 
+);
+  DFFNE mem_1_s1 (
+    .Q(get_data[1]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n221_3) 
+);
+  DFFNE mem_0_s1 (
+    .Q(get_data[0]),
+    .D(iic_sdar),
+    .CLK(iic_scl_d),
+    .CE(n223_8) 
+);
+  DFFNP bitcnt_2_s1 (
+    .Q(bitcnt[2]),
+    .D(n28_7),
+    .CLK(iic_scl_d),
+    .PRESET(n21_6) 
+);
+  MUX2_LUT5 n152_s19 (
+    .O(n152_25),
+    .I0(n152_20),
+    .I1(n152_21),
+    .S0(bitcnt[1]) 
+);
+  MUX2_LUT5 n152_s20 (
+    .O(n152_27),
+    .I0(n152_22),
+    .I1(n152_23),
+    .S0(bitcnt[1]) 
+);
+  INV n21_s2 (
+    .O(n21_6),
+    .I(incycle) 
+);
+  INV incycle_s4 (
+    .O(incycle_9),
+    .I(iic_sda_in) 
+);
+  INV n96_s2 (
+    .O(n96_5),
+    .I(iic_sdar) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+endmodule /* iic_slave_design */
+module i2c (
+  clk,
+  iic_scl,
+  iic_sda,
+  led_io
+)
+;
+input clk;
+input iic_scl;
+inout iic_sda;
+output led_io;
+wire iic_scl_d;
+wire iic_sda_in;
+wire led_io_d;
+wire led_io_d_6;
+wire led_io_d_7;
+wire iic_sda_5;
+wire [7:0] get_data;
+wire VCC;
+wire GND;
+  IBUF iic_scl_ibuf (
+    .O(iic_scl_d),
+    .I(iic_scl) 
+);
+  IOBUF iic_sda_iobuf (
+    .O(iic_sda_in),
+    .IO(iic_sda),
+    .I(GND),
+    .OEN(iic_sda_5) 
+);
+  OBUF led_io_obuf (
+    .O(led_io),
+    .I(led_io_d) 
+);
+  LUT2 led_io_d_s (
+    .F(led_io_d),
+    .I0(led_io_d_6),
+    .I1(led_io_d_7) 
+);
+defparam led_io_d_s.INIT=4'h8;
+  LUT4 led_io_d_s0 (
+    .F(led_io_d_6),
+    .I0(get_data[4]),
+    .I1(get_data[5]),
+    .I2(get_data[6]),
+    .I3(get_data[7]) 
+);
+defparam led_io_d_s0.INIT=16'h0001;
+  LUT4 led_io_d_s1 (
+    .F(led_io_d_7),
+    .I0(get_data[1]),
+    .I1(get_data[2]),
+    .I2(get_data[3]),
+    .I3(get_data[0]) 
+);
+defparam led_io_d_s1.INIT=16'h0100;
+  iic_slave_design slave (
+    .iic_sda_in(iic_sda_in),
+    .iic_scl_d(iic_scl_d),
+    .iic_sda_5(iic_sda_5),
+    .get_data(get_data[7:0])
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* i2c */

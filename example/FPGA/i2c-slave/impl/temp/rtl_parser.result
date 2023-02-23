@@ -1,0 +1,28 @@
+[
+ {
+  "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v",
+  "InstLine" : 1,
+  "InstName" : "i2c",
+  "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "i2c",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v",
+    "InstLine" : 12,
+    "InstName" : "slave",
+    "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c_slave.v",
+    "ModuleLine" : 3,
+    "ModuleName" : "iic_slave_design"
+   },
+   {
+    "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v",
+    "InstLine" : 28,
+    "InstName" : "led",
+    "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/led.v",
+    "ModuleLine" : 1,
+    "ModuleName" : "led_module"
+   }
+  ]
+ }
+]

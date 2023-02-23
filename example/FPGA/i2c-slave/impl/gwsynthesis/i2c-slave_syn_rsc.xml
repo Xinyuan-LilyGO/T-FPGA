@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="i2c" Lut="3">
+    <SubModule name="slave" Register="19" Lut="31"/>
+</Module>

@@ -1,0 +1,36 @@
+[
+ {
+  "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-top.v",
+  "InstLine" : 8,
+  "InstName" : "spi_top",
+  "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-top.v",
+  "ModuleLine" : 8,
+  "ModuleName" : "spi_top",
+  "SubInsts" : [
+   {
+    "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-top.v",
+    "InstLine" : 41,
+    "InstName" : "osc",
+    "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/gowin_osc/gowin_osc.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_OSC"
+   },
+   {
+    "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-top.v",
+    "InstLine" : 46,
+    "InstName" : "pll",
+    "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/gowin_pllvr/gowin_pllvr.v",
+    "ModuleLine" : 9,
+    "ModuleName" : "Gowin_PLLVR"
+   },
+   {
+    "InstFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-top.v",
+    "InstLine" : 51,
+    "InstName" : "spi_slaver1",
+    "ModuleFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/spi-blink/src/spi-slave.v",
+    "ModuleLine" : 5,
+    "ModuleName" : "spi_slaver"
+   }
+  ]
+ }
+]

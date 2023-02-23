@@ -1,0 +1,10 @@
+-d D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\impl\gwsynthesis\i2c-slave.vg
+-p GW1NSR-4C-QFN48P-6
+-pn GW1NSR-LV4CQN48PC6/I5
+-cst D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c-slave.cst
+-cfg D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error

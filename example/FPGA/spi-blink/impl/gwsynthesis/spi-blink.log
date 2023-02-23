@@ -1,0 +1,33 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\gowin_osc\gowin_osc.v'
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\gowin_pllvr\gowin_pllvr.v'
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-slave.v'
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-top.v'
+Undeclared symbol 'oscout_o', assumed default net type 'wire'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-top.v":42)
+Compiling module 'spi_top'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-top.v":8)
+Compiling module 'Gowin_OSC'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\gowin_osc\gowin_osc.v":9)
+WARN  (EX3670) : Actual bit length 32 differs from formal bit length 1 for port 'oscen'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-top.v":43)
+Compiling module 'Gowin_PLLVR'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\gowin_pllvr\gowin_pllvr.v":9)
+Compiling module 'spi_slaver'("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-slave.v":5)
+NOTE  (EX0101) : Current top module is "spi_top"
+[5%] Running netlist conversion ...
+WARN  (CV0016) : Input clk is unused("D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-top.v":9)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\gwsynthesis\spi-blink.vg" completed
+[100%] Generate report file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\gwsynthesis\spi-blink_syn.rpt.html" completed
+GowinSynthesis finish

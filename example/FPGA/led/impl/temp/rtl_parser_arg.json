@@ -1,0 +1,16 @@
+{
+ "Files" : [
+  {
+   "Path" : "D:/File/Micky/Github/T-FPGA/example/FPGA/led/src/led.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/led/impl/temp/rtl_parser.result",
+ "Top" : "led",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

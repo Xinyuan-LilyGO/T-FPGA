@@ -1,0 +1,31 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c_slave.v'
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\led.v'
+Analyzing Verilog file 'D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c.v'
+Compiling module 'i2c'("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c.v":1)
+Compiling module 'iic_slave_design'("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c_slave.v":3)
+WARN  (EX2420) : Latch inferred for net 'iic_sda_shadow'; We do not recommend the use of latches in FPGA designs, as they may lead to timing problems("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c_slave.v":15)
+Compiling module 'led_module'("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\led.v":1)
+NOTE  (EX0101) : Current top module is "i2c"
+[5%] Running netlist conversion ...
+WARN  (CV0016) : Input clk is unused("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c.v":2)
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "led_module" instantiated to "led" is swept in optimizing("D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c.v":31)
+[95%] Generate netlist file "D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\impl\gwsynthesis\i2c-slave.vg" completed
+[100%] Generate report file "D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\impl\gwsynthesis\i2c-slave_syn.rpt.html" completed
+GowinSynthesis finish

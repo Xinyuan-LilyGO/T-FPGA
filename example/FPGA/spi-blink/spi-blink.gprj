@@ -1,0 +1,15 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NSR-4C" pn="GW1NSR-LV4CQN48PC6/I5">gw1nsr4c-000</Device>
+    <FileList>
+        <File path="src/gowin_osc/gowin_osc.v" type="file.verilog" enable="1"/>
+        <File path="src/gowin_pllvr/gowin_pllvr.v" type="file.verilog" enable="1"/>
+        <File path="src/spi-slave.v" type="file.verilog" enable="1"/>
+        <File path="src/spi-top.v" type="file.verilog" enable="1"/>
+        <File path="src/spi-blink.cst" type="file.cst" enable="1"/>
+        <File path="src/spi-blink.sdc" type="file.sdc" enable="1"/>
+    </FileList>
+</Project>

@@ -1,0 +1,30 @@
+Reading netlist file: "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\gwsynthesis\spi-blink.vg"
+Parsing netlist file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\gwsynthesis\spi-blink.vg" completed
+Processing netlist completed
+Reading constraint file: "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\src\spi-blink.cst"
+Physical Constraint parsed completed
+Running placement......
+[10%] Placement Phase 0 completed
+[20%] Placement Phase 1 completed
+[30%] Placement Phase 2 completed
+WARN  (TA1118) : the clock "osc/osc_inst/OSCOUT.default_clk"'s frequency does not match pll/pllvr_inst's param "FCLKIN = "24""
+[50%] Placement Phase 3 completed
+Running routing......
+[60%] Routing Phase 0 completed
+[70%] Routing Phase 1 completed
+[80%] Routing Phase 2 completed
+[90%] Routing Phase 3 completed
+Running timing analysis......
+[95%] Timing analysis completed
+Placement and routing completed
+Bitstream generation in progress......
+Bitstream generation completed
+Running power analysis......
+[100%] Power analysis completed
+Generate file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\pnr\spi-blink.power.html" completed
+Generate file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\pnr\spi-blink.pin.html" completed
+Generate file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\pnr\spi-blink.rpt.html" completed
+Generate file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\pnr\spi-blink.rpt.txt" completed
+Generate file "D:\File\Micky\Github\T-FPGA\example\FPGA\spi-blink\impl\pnr\spi-blink.tr.html" completed
+Thu Feb 23 17:21:25 2023
+

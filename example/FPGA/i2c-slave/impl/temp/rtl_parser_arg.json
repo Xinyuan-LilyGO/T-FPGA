@@ -1,0 +1,24 @@
+{
+ "Files" : [
+  {
+   "Path" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c_slave.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/led.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/src/i2c.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "D:/File/Micky/Github/T-FPGA/example/FPGA/i2c-slave/i2c-slave/impl/temp/rtl_parser.result",
+ "Top" : "i2c",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

@@ -1,0 +1,13 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NSR-4C" pn="GW1NSR-LV4CQN48PC6/I5">gw1nsr4c-000</Device>
+    <FileList>
+        <File path="src/i2c.v" type="file.verilog" enable="1"/>
+        <File path="src/i2c_slave.v" type="file.verilog" enable="1"/>
+        <File path="src/led.v" type="file.verilog" enable="1"/>
+        <File path="src/i2c-slave.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>

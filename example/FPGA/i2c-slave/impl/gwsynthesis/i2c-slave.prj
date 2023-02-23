@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gowin-synthesis-project>
+<Project>
+    <Version>beta</Version>
+    <Device id="GW1NSR-4C" package="QFN48P" speed="6" partNumber="GW1NSR-LV4CQN48PC6/I5"/>
+    <FileList>
+        <File path="D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c_slave.v" type="verilog"/>
+        <File path="D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\led.v" type="verilog"/>
+        <File path="D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\src\i2c.v" type="verilog"/>
+    </FileList>
+    <OptionList>
+        <Option type="disable_insert_pad" value="0"/>
+        <Option type="dsp_balance" value="0"/>
+        <Option type="looplimit" value="2000"/>
+        <Option type="output_file" value="D:\File\Micky\Github\T-FPGA\example\FPGA\i2c-slave\i2c-slave\impl\gwsynthesis\i2c-slave.vg"/>
+        <Option type="print_all_synthesis_warning" value="0"/>
+        <Option type="ram_rw_check" value="1"/>
+        <Option type="top_module" value="i2c"/>
+        <Option type="verilog_language" value="verilog-2001"/>
+        <Option type="vhdl_language" value="vhdl-1993"/>
+    </OptionList>
+</Project>

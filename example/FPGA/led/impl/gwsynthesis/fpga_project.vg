@@ -1,0 +1,47 @@
+//
+//Written by GowinSynthesis
+//Product Version "GowinSynthesis V1.9.8.01"
+//Tue Feb 21 14:47:51 2023
+
+//Source file index table:
+//file0 "\D:/Users/19021/Documents/fpga_project/src/led.v"
+`timescale 100 ps/100 ps
+module led (
+  clk,
+  led
+)
+;
+input clk;
+output led;
+wire clk_d;
+wire led_d;
+wire n5_7;
+wire VCC;
+wire GND;
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  OBUF led_obuf (
+    .O(led),
+    .I(led_d) 
+);
+  DFF led_s2 (
+    .Q(led_d),
+    .D(n5_7),
+    .CLK(clk_d) 
+);
+  INV n5_s2 (
+    .O(n5_7),
+    .I(led_d) 
+);
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* led */

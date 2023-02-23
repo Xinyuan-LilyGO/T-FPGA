@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="spi_top" Register="9" Alu="7" Lut="3">
+    <SubModule name="osc"/>
+    <SubModule name="pll"/>
+    <SubModule name="spi_slaver1" Register="28" Lut="24"/>
+</Module>
