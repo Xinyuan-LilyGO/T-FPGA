@@ -34,6 +34,7 @@ void setup() {
   PMU.enableALDO3();
   PMU.enableALDO4();
 
+  PMU.disableTSPinMeasure();
   delay(1000);
   // Wire1.begin(PIN_FPGA_D0, PIN_FPGA_SCK);
   pinMode(PIN_FPGA_CS, OUTPUT);
@@ -49,6 +50,7 @@ void loop() {
   PMU.setChargingLedMode(XPOWERS_CHG_LED_OFF);
   fpga_spi_blink(false);
   delay(random(300, 980));
+  Serial.printf("[BAT]:percent: %d%%\r\n", PMU.getBatteryPercent());
 }
 
 void led_task(void *param) {
