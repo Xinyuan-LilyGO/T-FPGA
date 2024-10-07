@@ -10,7 +10,7 @@ The circuit board is an integrated ESP32S3 and FPGA (GW1NSR-LV4CQN48PC6/I5) cont
 
 ## Where to buy
 
-T-FPGA is available from: [LILYGO](https://www.lilygo.cc/en-ca/products/t-fpga), [Amazon](https://www.amazon.com/stores/LILYGO/page/0F20442A-0A95-46E6-8FCE-80C6D59434E0?ref_=ast_bln) and [Aliexpress](https://www.aliexpress.com/item/1005005461906828.html?spm=a2g0o.productlist.main.1.3d5129e66YMHCJ&algo_pvid=06795306-b791-4d4b-833a-f8e533e88780&algo_exp_id=06795306-b791-4d4b-833a-f8e533e88780-0&pdp_npi=3%40dis%21CAD%2144.47%2142.24%21%21%21%21%21%40211be3d216885117533263859d07dd%2112000033177240954%21sea%21CA%212016647482&curPageLogUid=fRTANTbhtuwH).
+T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Aliexpress](https://github.com/Xinyuan-LilyGO/T-FPGA).
 
 ## Quick Start 
 >## ESP32-S3:
@@ -31,6 +31,7 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/en-ca/products/t-fpga),
 >
 >| Setting                  | Value                            |
 >| :----------------------- | :------------------------------- |
+>| Board                    | ESP32 S3 Dev Module              |
 >| USB CDC On Boot          | Enabled                          |
 >| CPU Frequency            | 240MHz (WiFi)                    |
 >| Core Debug Level         | None                             |
