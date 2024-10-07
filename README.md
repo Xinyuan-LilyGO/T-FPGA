@@ -14,19 +14,19 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Alie
 
 ## Quick Start 
 >## ESP32-S3:
->The board uses USB as the JTAG upload port. When printing serial port information >on USB, CDC_ON_BOOT configuration needs to be turned on. 
->If the port cannot be found when uploading the program or the USB has been used >for other functions, the port does not appear. 
+>The board uses USB as the JTAG upload port. When printing serial port information on USB, CDC_ON_BOOT configuration needs to be turned on. 
+>If the port cannot be found when uploading the program or the USB has been used for other functions, the port does not appear. 
 >Please enter the upload mode manually. 
->-  Press and hold the BOOT button when the power is off, the button is located >behind the RST button.
->-  When the USB is connected, first press and hold the BOOT button, then click >reset and then release the BOOT button
+>-  Press and hold the BOOT button when the power is off, the button is located behind the RST button.
+>-  When the USB is connected, first press and hold the BOOT button, then click reset and then release the BOOT button
 >
 >### Arduino
 >
->1. In Arduino Preferences, on the Settings tab, enter the `https://raw.>githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json` >URL in the `Additional boards manager URLs` input box. 
+>1. In Arduino Preferences, on the Settings tab, enter the `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json` URL in the `Additional boards manager URLs` input box. 
 >2. Click OK and the software will install. 
->3. Search for ESP32 in Tools → Board Manager and install ESP32-Arduino SDK >(version 2.0.3 or above)
+>3. Search for ESP32 in Tools → Board Manager and install ESP32-Arduino SDK (version 2.0.3 or above)
 >![](image/Arduino_board.png)
->4. Copy everything from this repository lib folder to [Arduino library folder]>(https://docs.arduino.cc/software/ide-v1/tutorials/>installing-libraries#manual-installation) (e.g. >`C:\Users\YourName\Documents\Arduino\libraries`)
+>4. Copy everything from this repository lib folder to [Arduino library folder](https://docs.arduino.cc/software/ide-v1/tutorials/installing-libraries#manual-installation) (e.g. `C:\Users\YourName\Documents\Arduino\libraries`)
 >5. Select the correct settings in the Tools menu as shown below.
 >
 >| Setting                  | Value                            |
@@ -48,21 +48,21 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Alie
 >
 >### PlatformIO
 >
->1. PlatformIO plug-in installation: click on the extension on the left column → >search platformIO → install the first plug-in
->2. Click Platforms → Embedded → search Espressif 32 in the input box → select the >corresponding firmware installation
+>1. PlatformIO plug-in installation: click on the extension on the left column → search platformIO → install the first plug-in
+>2. Click Platforms → Embedded → search Espressif 32 in the input box → select the corresponding firmware installation
 >
 >### ESP-IDF
 >
->The installation method varies depending on the system, refer to the [official >manual](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/>index.html) for installation.
+>The installation method varies depending on the system, refer to the [official manual](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html) for installation.
 
 >## GW1NSR-LV4CQN48PC6/I5
 >### Software Introduction
->1. Enter the official download page Technical Support Click to download different >versions of EDA software.  
+>1. Enter the official download page Technical Support Click to download different versions of EDA software.  
 >[Download page](https://www.gowinsemi.com/en/support/database/14/)
 >![](image/downloadpage.png)
->- `Note`: The normal version needs to obtain the application license file to >activate. Educational Edition is not required.
->- [License application](https://www.gowinsemi.com/en/support/license/) takes about >24 hours.
->2. You can see this interface when you open the software after the installation is >complete. Click New Project to get started.
+>- `Note`: The normal version needs to obtain the application license file to activate. Educational Edition is not required.
+>- [License application](https://www.gowinsemi.com/en/support/license/) takes about 24 hours.
+>2. You can see this interface when you open the software after the installation is complete. Click New Project to get started.
 >![](image/1.png)
 >
 >3. Select the consistent chip selection as shown below to complete the new project >steps.
@@ -74,7 +74,7 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Alie
 >![](image/4.png)
 >![](image/5.png)
 >
->5. Edit an example where the logic is to reverse the state of the IO port when the >BUTTON is pressed.
+>5. Edit an example where the logic is to reverse the state of the IO port when the BUTTON is pressed.
 >```
 >module led(
 >    input clk,
@@ -101,7 +101,7 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Alie
 >![](image/12.png)
 >
 >9. After rebuilding once. Click the upload function below.
->- First, you need to open the [zadig](https://zadig.en.lo4d.com/windows) software >to initialize the driver.
+>- First, you need to open the [zadig](https://zadig.en.lo4d.com/windows) software to initialize the driver.
 >![](image/13.png)
 >![](image/14.png)
 >![](image/15.png)
