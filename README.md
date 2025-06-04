@@ -112,8 +112,15 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Alie
 
 
 ## Q&A
+
 1. Q: Connecting the FPGA-JTAG USB interface does not pop up a new device or the program cannot be successfully uploaded to the FPGA chip
 - A: Because the BANK area of the FPGA chip requires different power supply voltages. During initialization, the ESP32-S3 needs to correct the voltage of the PMU and turn it on before it can work normally.
 
 - The solution is to let ESP32-S3 upload `T-FPGA\example\ESP32-S3\turn_on_power` program first. The purpose of this procedure is to turn on the PMU voltage.
 
+2. JTAG Connector Model
+
+* [0.3K-HX-13PWB](https://item.szlcsc.com/3222443.html)
+
+![](./image/JTAG.jpg)
+![](./image/conn.jpg)
