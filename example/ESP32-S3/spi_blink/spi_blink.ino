@@ -51,8 +51,6 @@ void loop()
     delay(20);
     PMU.setChargingLedMode(XPOWERS_CHG_LED_OFF);
     fpga_spi_blink(false);
-    delay(random(300, 980));
-    Serial.printf("[BAT]:percent: %d%%\r\n", PMU.getBatteryPercent());
 }
 
 void led_task(void *param)
@@ -69,11 +67,20 @@ void led_task(void *param)
 void fpga_spi_blink(bool en)
 {
     uint8_t fpga_input = en ? 0x01 : 0xf1;
-    // uint8_t fpga_input = random(0, 0xfe);
-    digitalWrite(PIN_FPGA_CS, 0);
-    SPI.beginTransaction(SPISettings(1000000, SPI_MSBFIRST, SPI_MODE3));
-    uint8_t fpga_output = SPI.transfer(fpga_input);
-    SPI.endTransaction();
-    digitalWrite(PIN_FPGA_CS, 1);
-    // Serial.printf("input : %d  output : %d \r\n", fpga_input, fpga_output);
+    int i;
+
+    for (i = 0; i <= 0xff; i++) {
+        // uint8_t fpga_input = random(0, 0xfe);
+        digitalWrite(PIN_FPGA_CS, 0);
+        //SPI.beginTransaction(SPISettings(1000000, SPI_MSBFIRST, SPI_MODE3)); // mode loses a bit inside FPGA
+        SPI.beginTransaction(SPISettings(10000000, SPI_MSBFIRST, SPI_MODE0)); // working!!!
+        uint8_t fpga_output = SPI.transfer(i);//SPI.transfer(fpga_input);
+        SPI.endTransaction();
+        digitalWrite(PIN_FPGA_CS, 1);
+
+        //Serial.printf("input : %d  output : %d \r\n", fpga_input, fpga_output);
+        Serial.printf("[%02x] : input : %02x  output : %02x \r\n", i, i, fpga_output);
+    }
+    Serial.printf("\r\n");
+    while (1);
 }
