@@ -1,157 +1,111 @@
-//极性特点：时钟空闲时为高电平
-//在上升沿采样数据，获取MOSI的输入
-//在下降沿发送数据,将数据发送到MISO
-//sck的时钟要大大小于clk的时钟，至多为clk/8
 module spi_slaver(
-	input			    clk,
-	input			    rst,
-	input			    cs,
-	input			    sck,
-	input			    MOSI,
-	output reg			MISO,
-	output reg[7:0]		rxd_out,
-	input [7:0]			txd_data,
-	output			    rxd_flag //接受数据脉冲信号 接受到一个数据会产生一个正脉冲信号
+    input           clk,
+    input           rst,
+    input           cs,
+    input           sck,
+    input           MOSI,
+    output reg      MISO,
+    output reg[7:0] rxd_out,
+    input [7:0]     txd_data,
+    output          rxd_flag
 );
-reg[7:0] rxd_data;
-reg sck_r0,sck_r1;
-wire sck_n,sck_p;
- 
-always @(posedge clk or negedge rst)
-begin
-   if(!rst)
-    begin
-	   sck_r0<=1'b0;
-	   sck_r1<=1'b0;
-	end 
-   else
-    begin
-        sck_r1 = sck_r0;
-	    sck_r0 = sck;
-	end
+
+// 根据ESP32的SPI_MODE0配置：
+// CPOL = 0 (时钟空闲低电平)
+// CPHA = 0 (数据在第一个边沿采样，即上升沿采样)
+
+reg [2:0] sck_sync;
+reg [2:0] cs_sync;
+wire sck_rising, sck_falling;
+wire cs_active;
+
+// 同步外部信号 - 使用非阻塞赋值
+always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+        sck_sync <= 3'b000;
+        cs_sync <= 3'b111;
+    end else begin
+        sck_sync <= {sck_sync[1:0], sck};
+        cs_sync <= {cs_sync[1:0], cs};
+    end
 end
-assign sck_n = (~sck_r0 & sck_r1)? 1'b1:1'b0; 
-assign sck_p = (~sck_r1 & sck_r0)? 1'b1:1'b0;
 
+// 边沿检测
+assign sck_rising = (sck_sync[2:1] == 2'b01);  // 检测上升沿
+assign sck_falling = (sck_sync[2:1] == 2'b10); // 检测下降沿  
+assign cs_active = ~cs_sync[1];  // CS低电平有效
 
-//-----------------------spi_slaver read data-------------------------------
-reg rxd_flag_r;
-reg [2:0] rxd_state;
+// ---------------------- 数据接收 ----------------------
+reg [7:0] rxd_shift;
+reg [3:0] bit_count_rx;
+reg rxd_done;
 
-always@(posedge clk or negedge rst)
-begin
-    if(!rst)
-        begin
-            rxd_data <= 1'b0;
-            rxd_flag_r <= 1'b0;
-            rxd_state <= 1'b0;
+always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+        rxd_shift <= 8'b0;
+        bit_count_rx <= 4'd0;
+        rxd_done <= 1'b0;
+        rxd_out <= 8'b0;
+    end else if (!cs_active) begin
+        // CS无效时复位
+        rxd_shift <= 8'b0;
+        bit_count_rx <= 4'd0;
+        rxd_done <= 1'b0;
+    end else if (sck_rising) begin
+        // 上升沿采样MOSI (SPI_MODE0)
+        rxd_shift <= {rxd_shift[6:0], MOSI};
+        bit_count_rx <= bit_count_rx + 4'd1;
+        
+        if (bit_count_rx == 4'd7) begin
+            // 完成一个字节
+            rxd_out <= {rxd_shift[6:0], MOSI};
+            rxd_done <= 1'b1;
+        end else begin
+            rxd_done <= 1'b0;
         end
-    else if(sck_p && !cs)   
-        begin
-            case(rxd_state)
-                3'd0:begin
-                        rxd_data[7] <= MOSI;
-                        rxd_flag_r <= 1'b0;   //reset rxd_flag
-                        rxd_state <= 3'd1;
-                      end
-                3'd1:begin
-                        rxd_data[6] <= MOSI;
-                        rxd_state <= 3'd2;
-                      end
-                3'd2:begin
-                        rxd_data[5] <= MOSI;
-                        rxd_state <= 3'd3;
-                      end
-                3'd3:begin
-                        rxd_data[4] <= MOSI;
-                        rxd_state <= 3'd4;
-                      end
-                3'd4:begin
-                        rxd_data[3] <= MOSI;
-                        rxd_state <= 3'd5;
-                      end
-                3'd5:begin
-                        rxd_data[2] <= MOSI;
-                        rxd_state <= 3'd6;
-                      end
-                3'd6:begin
-                        rxd_data[1] <= MOSI;
-                        rxd_state <= 3'd7;
-                      end
-                3'd7:begin
-                        rxd_out<={rxd_data[7:1],MOSI};
-                        rxd_data[0] <= MOSI;
-                        rxd_flag_r <= 1'b1;  //set rxd_flag
-                        rxd_state <= 3'd0;
-                      end
-                default: ;
-            endcase
-        end
+    end else begin
+        rxd_done <= 1'b0;
+    end
 end
-//--------------------capture spi_flag posedge--------------------------------
-reg rxd_flag_r0,rxd_flag_r1;
-always@(posedge clk or negedge rst)
-begin
-    if(!rst)
-        begin
-            rxd_flag_r0 <= 1'b0;
-            rxd_flag_r1 <= 1'b0;
-        end
-    else
-        begin
-            rxd_flag_r1 = rxd_flag_r0;
-            rxd_flag_r0 = rxd_flag_r;
-        end
-end
-assign rxd_flag = (~rxd_flag_r1 & rxd_flag_r0)? 1'b1:1'b0;   
 
-
-//---------------------spi_slaver send data---------------------------
-reg [2:0] txd_state;
-always@(posedge clk or negedge rst)
-begin
-    if(!rst)
-        begin
-            txd_state <= 3'd0;
-			 MISO<=1'bz;
-        end
-    else if(sck_n && !cs)
-        begin
-            case(txd_state)
-                3'd0:begin
-                        MISO <= txd_data[7];
-                        txd_state <= 3'd1;
-                      end
-                3'd1:begin
-                        MISO <= txd_data[6];
-                        txd_state <= 3'd2;
-                      end
-                3'd2:begin
-                        MISO <= txd_data[5];
-                        txd_state <= 3'd3;
-                      end
-                3'd3:begin
-                        MISO <= txd_data[4];
-                        txd_state <= 3'd4;
-                      end
-                3'd4:begin
-                        MISO <= txd_data[3];
-                        txd_state <= 3'd5;
-                      end
-                3'd5:begin
-                        MISO <= txd_data[2];
-                        txd_state <= 3'd6;
-                      end
-                3'd6:begin
-                        MISO <= txd_data[1];
-                        txd_state <= 3'd7;
-                      end
-                3'd7:begin
-                        MISO <= txd_data[0];
-                        txd_state <= 3'd0;
-                      end
-                default: ;
-            endcase
-        end
+// 生成接收完成脉冲
+reg rxd_done_prev;
+always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+        rxd_done_prev <= 1'b0;
+    end else begin
+        rxd_done_prev <= rxd_done;
+    end
 end
+assign rxd_flag = rxd_done && !rxd_done_prev;
+
+// ---------------------- 数据发送 ----------------------
+reg [7:0] txd_shift;
+reg [3:0] bit_count_tx;
+
+always @(posedge clk or negedge rst) begin
+    if (!rst) begin
+        txd_shift <= 8'b0;
+        bit_count_tx <= 4'd0;
+        MISO <= 1'b0;
+    end else if (!cs_active) begin
+        // CS无效时复位
+        txd_shift <= 8'b0;
+        bit_count_tx <= 4'd0;
+        MISO <= 1'b0;
+    end else if (cs_active && bit_count_tx == 0) begin
+        // CS有效且尚未开始传输时，加载数据并输出第一位
+        txd_shift <= txd_data;
+        MISO <= txd_data[7];
+        bit_count_tx <= 4'd1;
+    end else if (sck_falling) begin
+        // 下降沿移位输出下一位
+        if (bit_count_tx < 4'd8) begin
+            txd_shift <= {txd_shift[6:0], 1'b0};
+            MISO <= txd_shift[6];
+            bit_count_tx <= bit_count_tx + 4'd1;
+        end
+    end
+end
+
 endmodule
