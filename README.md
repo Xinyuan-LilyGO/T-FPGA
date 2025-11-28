@@ -6,7 +6,7 @@ The circuit board is an integrated ESP32S3 and FPGA (GW1NSR-LV4CQN48PC6/I5) cont
 
 ## Pinout
 
-![](image/.jpg)
+![](image/T-FPGA.jpg)
 
 ## Where to buy
 
