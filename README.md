@@ -10,7 +10,7 @@ The circuit board is an integrated ESP32S3 and FPGA (GW1NSR-LV4CQN48PC6/I5) cont
 
 ## Where to buy
 
-T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga)
+T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amazon](https://www.amazon.com/LILYGO-Development-Low-Power-Microcontrollers-Bluetooth5/dp/B0CF5GSJN1).
 
 ## Quick Start 
 >## ESP32-S3:
