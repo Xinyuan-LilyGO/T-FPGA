@@ -47,10 +47,10 @@ void setup()
     }
 
     PMU.setDC4Voltage(1200);   // Here is the FPGA core voltage. Careful review of the manual is required before modification.
-    PMU.setALDO1Voltage(3300); // BANK0 area voltage
-    PMU.setALDO2Voltage(3300); // BANK1 area voltage
-    PMU.setALDO3Voltage(2500); // BANK2 area voltage
-    PMU.setALDO4Voltage(1800); // BANK3 area voltage
+    PMU.setALDO1Voltage(3300); // BANK0 area voltage Range: 1200~3600mV
+    PMU.setALDO2Voltage(3300); // BANK1 area voltage Range: 1200~3600mV
+    PMU.setALDO3Voltage(2500); // BANK2 area voltage Range: 1200~3600mV
+    PMU.setALDO4Voltage(1800); // BANK3 area voltage Range: 1800mV, Can't adjust
 
     PMU.enableALDO1();
     PMU.enableALDO2();

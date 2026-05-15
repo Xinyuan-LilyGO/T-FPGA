@@ -125,3 +125,14 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amaz
 
 ![](./image/JTAG.jpg)
 ![](./image/conn.jpg)
+
+
+3. BANK Voltage Setting
+
+| FPGA  | Range       |                  |
+| ----- | ----------- | ---------------- |
+| Core  | 1200mV      | Core Voltage     |
+| BANK0 | 1200~3600mV | I/O Bank         |
+| BANK1 | 1200~3600mV | I/O Bank         |
+| BANK2 | 1200~3600mV | I/O Bank         |
+| BANK3 | 1800mV      | HyperRAM Voltage |
