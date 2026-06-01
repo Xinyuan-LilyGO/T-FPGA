@@ -26,11 +26,15 @@ void setup()
     PMU.setALDO2Voltage(3300); // BANK1 area voltage
     PMU.setALDO3Voltage(2500); // BANK2 area voltage
     PMU.setALDO4Voltage(1800); // BANK3 area voltage
+    PMU.setBLDO1Voltage(1800); // Shield-side voltage, which can be used as the I/O voltage of the FPGA. Careful review of the manual is required before modification.
+    PMU.setBLDO2Voltage(1800); // Shield-side voltage, which can be used as the I/O voltage of the FPGA. Careful review of the manual is required before modification.
 
     PMU.enableALDO1();
     PMU.enableALDO2();
     PMU.enableALDO3();
     PMU.enableALDO4();
+    PMU.enableBLDO1();
+    PMU.enableBLDO2();
 }
 
 void loop()
