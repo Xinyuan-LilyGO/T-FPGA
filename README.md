@@ -10,7 +10,7 @@ The circuit board is an integrated ESP32S3 and FPGA (GW1NSR-LV4CQN48PC6/I5) cont
 
 ## Where to buy
 
-T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amazon](https://www.amazon.com/LILYGO-Development-Low-Power-Microcontrollers-Bluetooth5/dp/B0CF5GSJN1).
+T-FPGA is available from: [LILYGO](https://lilygo.cc/products/t-fpga), [Amazon](https://www.amazon.com/LILYGO-Development-Low-Power-Microcontrollers-Bluetooth5/dp/B0CF5GSJN1).
 
 ## Quick Start 
 >## ESP32-S3:
@@ -110,8 +110,6 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amaz
 >10. Finally click the download button to complete all steps.
 >![](image/16.png)
 
-
-
 ## Q&A
 
 1. Q: Connecting the FPGA-JTAG USB interface does not pop up a new device or the program cannot be successfully uploaded to the FPGA chip
@@ -121,11 +119,10 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amaz
 
 2. JTAG Connector Model
 
-* [0.3K-HX-13PWB](https://item.szlcsc.com/3222443.html)
+- [0.3K-HX-13PWB](https://item.szlcsc.com/3222443.html)
 
 ![](./image/JTAG.jpg)
 ![](./image/conn.jpg)
-
 
 3. BANK Voltage Setting
 
@@ -136,3 +133,7 @@ T-FPGA is available from: [LILYGO](https://www.lilygo.cc/products/t-fpga), [Amaz
 | BANK1 | 1200~3600mV | I/O Bank         |
 | BANK2 | 1200~3600mV | I/O Bank         |
 | BANK3 | 1800mV      | HyperRAM Voltage |
+
+4. T-FPGA NGFF Socket model
+
+- [APCI0107-P001A](./datasheet/APCI0107-P001A.PDF)
