@@ -126,14 +126,29 @@ T-FPGA is available from: [LILYGO](https://lilygo.cc/products/t-fpga), [Amazon](
 
 3. BANK Voltage Setting
 
-| FPGA  | Range       |                  |
-| ----- | ----------- | ---------------- |
-| Core  | 1200mV      | Core Voltage     |
-| BANK0 | 1200~3600mV | I/O Bank         |
-| BANK1 | 1200~3600mV | I/O Bank         |
-| BANK2 | 1200~3600mV | I/O Bank         |
-| BANK3 | 1800mV      | HyperRAM Voltage |
+    | FPGA  | Range       |                  |
+    | ----- | ----------- | ---------------- |
+    | Core  | 1200mV      | Core Voltage     |
+    | BANK0 | 1200~3600mV | I/O Bank         |
+    | BANK1 | 1200~3600mV | I/O Bank         |
+    | BANK2 | 1200~3600mV | I/O Bank         |
+    | BANK3 | 1800mV      | HyperRAM Voltage |
 
 4. T-FPGA NGFF Socket model
 
 - [APCI0107-P001A](./datasheet/APCI0107-P001A.PDF)
+- [lcsc link](https://www.lcsc.com/product-detail/C841661.html)
+
+
+## [PCB 3D](./dimensions/pcb3d/FPGA-CORE.7z)
+
+![](./dimensions/images/pcb3d.png)
+
+
+## [CORE SIZE](./dimensions/dxf/FPGA-CORE.dwg)
+
+![](./dimensions/images/dxf.png)
+
+## [Baseboard PCB](./PCB/)
+
+![Baseboard PCB](./PCB/images/pcb.png)
