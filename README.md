@@ -149,6 +149,6 @@ T-FPGA is available from: [LILYGO](https://lilygo.cc/products/t-fpga), [Amazon](
 
 ![](./dimensions/images/dxf.png)
 
-## [Baseboard PCB](./PCB/)
+## [Baseboard PCB](./pcb/)
 
-![Baseboard PCB](./PCB/images/pcb.png)
+![Baseboard PCB](./pcb/images/pcb.png)
